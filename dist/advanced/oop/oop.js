@@ -2,6 +2,21 @@
 //OOP  Class and Object///
 //Class//
 //Class is a blueprint for creating objects. A class encapsulates data for the object.
+// #Static Property# //
+//Static properties are defined on the class itself and not on the prototype. Static properties are inherited by subclasses.
+class Company {
+    static showCompanyData() {
+        console.log(`Company Name: ${this.companyName}`);
+        for (const employee of this.employeesList) {
+            // employee can access to static property of Company class
+            // employee are instance of Employees class
+            employee.showDetails();
+        }
+    }
+}
+Company.companyName = "ABC Company";
+// public static founder:string = "John Doe The Boss"
+Company.employeesList = [];
 //Make Employee to be a super class
 class Employees {
     //properties//
@@ -9,6 +24,7 @@ class Employees {
     // private  empName: string;
     // private empDepartment: string;
     // private empSalary: number;
+    // protected companyName:string = "ABC Company"
     //constructor with parameter properties//
     constructor(empCode, empName, empDepartment, empSalary) {
         this.empCode = empCode;
@@ -40,6 +56,8 @@ class IT extends Employees {
     // And if you add constructor, you must use super() to call constructor from super class.
     constructor(empCode, empName) {
         super(empCode, empName, 'IT');
+        //// With protected properties, you can access from super class and sub class.////
+        // console.log(`Work place: ${this.companyName}`);
     }
 }
 class Developer extends Employees {
@@ -51,6 +69,8 @@ class Developer extends Employees {
         // if (empDepartment === "") {
         //     empDepartment = "Developer"
         // }
+        //// With protected properties, you can access from super class and sub class.////
+        // console.log(`Work place: ${this.companyName}`);
     }
 }
 //Object//
@@ -71,10 +91,24 @@ class Developer extends Employees {
 // console.log(emps1.Salary);
 //Inheritance btw super class and sub class//
 //Inheritance is a way to create a new class for using details from an existing class without modifying it.
-const emps1 = new IT(1, "Uri");
-console.log(emps1);
-const emps2 = new Developer(2, "Tae nama2", 100000);
-console.log(emps2);
+// const emps1 = new IT(1, "Uri");
+// console.log(emps1);
+// const emps2 = new Developer(2, "Tae nama2", 100000);
+// console.log(emps2);
+/////////////////////////////////////////////////////////////
 // sub class can use public method from super class
-emps1.showDetails();
-emps2.showDetails();
+// emps1.showDetails()
+// emps2.showDetails()
+/////////////////////////// Sttaic Properties and Methods ///////////////////////////
+//Static Property//
+// console.log(Company.companyName);
+// console.log(Company.founder);
+const emps1 = new IT(1, "Uri");
+const emps2 = new Developer(2, "Tae nama2", 100000);
+const emps3 = new Developer(3, "Tae nama3", 100000);
+Company.employeesList.push(emps1);
+Company.employeesList.push(emps2);
+Company.employeesList.push(emps3);
+// console.log(Company.employeesList);
+//Static Method//
+Company.showCompanyData();
