@@ -1,10 +1,14 @@
-
-//OOP  Class and Object///
-
+/////// Interface with abstaract class ///////
+// Class can inherit from multiple interfaces, but can only inherit from one class.
+// So we have to change abstract class to interface
+interface InReport{
+    income:number;
+    reportIncome():void;
+}
 
 ///////// Abstract Class //////////
 
-abstract class Customers{
+abstract class DevPosition{
     //properties//
 
     //constructor with parameter properties//
@@ -32,29 +36,44 @@ abstract class Customers{
 
 }
 
-class IT_Support extends Customers{
-    constructor(empCode: number, empName: string){
+class SE extends DevPosition implements InReport{
+    income: number;
+    constructor(empCode: number, empName: string, empSalary: number){
         super(empCode, empName, 'IT_Support')
+        this.income = empSalary
     }
 
     showCustomerServiceDetail(){
         console.log("Support Customer");
     }
+
+    reportIncome(){
+        console.log(`Income: ${this.income * 12}/Year`);
+    }
 }
 
-class Developers extends Customers{
+class QA extends DevPosition implements InReport{
+    income: number;
     constructor(empCode: number, empName: string, empSalary: number){
         super(empCode, empName, 'Developer naja', empSalary);
+        this.income = empSalary
     }
 
     showCustomerServiceDetail(){
         console.log("Develop For Customer");
     }
+
+    reportIncome(){
+        console.log(`Income: ${this.income * 12}/Year`);
+    }
 }
 
 //Object//
-const cus1 = new IT_Support(1, "Uri");
-const cus2 = new Developers(2, "Tae nama2", 100000);
+const devPos1 = new SE(1, "Uri", 100000);
+const devPos2 = new QA(2, "Tae nama2", 100000);
 
-cus1.showCustomerServiceDetail();
-cus2.showCustomerServiceDetail();
+devPos1.reportIncome();
+devPos2.reportIncome();
+
+// devPos1.showCustomerServiceDetail();
+// devPos2.showCustomerServiceDetail();

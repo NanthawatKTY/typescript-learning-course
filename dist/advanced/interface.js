@@ -25,6 +25,7 @@ let personUser1 = {
 };
 // personUser1.name = 'female'/
 console.log(personUser1);
+personUser1.info();
 ////Method in interface
 // personUser1.info();
 ////////////////////// Interface vs Type Aliases ///////////////////////

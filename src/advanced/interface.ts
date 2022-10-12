@@ -56,6 +56,7 @@ let personUser1:People={
 
 // personUser1.name = 'female'/
 console.log(personUser1);
+personUser1.info();
 
 
 ////Method in interface
