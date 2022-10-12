@@ -2,25 +2,35 @@
 //OOP  Class and Object///
 //Class//
 class Employees {
-    //constructor//
-    constructor(empCode, empName, empDepartment, salary) {
+    //properties//
+    // private empCode: number;
+    // private  empName: string;
+    // private empDepartment: string;
+    // private empSalary: number;
+    //constructor with parameter properties//
+    constructor(empCode, empName, empDepartment, empSalary) {
         this.empCode = empCode;
         this.empName = empName;
         this.empDepartment = empDepartment;
-        this.salary = salary;
+        this.empSalary = empSalary;
+        // # Default constructor value before assign value from parameter properties # //
+        // this.empCode = empCode;
+        // this.empName = empName;
+        // this.empDepartment = empDepartment;
+        // this.salary = salary;
     }
     //method//
     showDetails() {
-        console.log(`Name: ${this.empName}, Department: ${this.empDepartment}, Salary: ${this.salary}`);
+        console.log(`Name: ${this.empName}, Department: ${this.empDepartment}, Salary: ${this.empSalary}`);
     }
     //getter and setter//
     //Getter(Get data from private properties)
     get Salary() {
-        return this.salary;
+        return this.empSalary || 0;
     }
     //Setter(Set data to private properties)
     set Salary(newSalary) {
-        this.salary = newSalary;
+        this.empSalary = newSalary;
     }
 }
 //Object//
@@ -36,6 +46,6 @@ const emps2 = new Employees(2, "Tae nama", "SE", 100000);
 // emps1.showDetails()
 // emps2.showDetails()
 //Getter and Setter//
-emps1.Salary = 10000000;
+// emps1.Salary = 10000000
 emps1.showDetails();
 console.log(emps1.Salary);
