@@ -12,7 +12,7 @@ npm install
 npm install --save-dev ts-node nodemon
 
 # Install TSC
-tsc init
+tsc --init
 
 # Run nodemon 
 nodemon [filename].ts
