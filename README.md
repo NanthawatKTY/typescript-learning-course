@@ -14,6 +14,9 @@ npm install --save-dev ts-node nodemon
 # Install TSC
 tsc --init
 
+# Use tsc watch to see errors
+tsc -w
+
 # Run nodemon 
 nodemon [filename].ts
 
