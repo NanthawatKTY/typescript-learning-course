@@ -19,4 +19,4 @@ function calculateArea(shape) {
             return new Error("Invalid shape");
     }
 }
-console.log(`Mathmetics Shape: ` + calculateArea({ width: 10, height: 20, type: "rectangle" }));
+console.log(`Mathmetics Shape: ` + calculateArea({ width: 10, height: 20, type: "rectangle" }) + "Unit");
